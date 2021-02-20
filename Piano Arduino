@@ -1,0 +1,324 @@
+int fingerStatus1(float finger);
+ int fingerStatus2(float finger);
+ int fingerStatus3 (float finger);
+ int fingerStatus4 (float finger);
+ int fingerStatus5(float finger);
+ int fingerStatus1t (float finger);
+ int fingerStatus2t (float finger);
+ int fingerStatus3t (float finger);
+ int fingerStatus4t (float finger);
+int fingerStatus5t (float finger);
+ #include <SoftwareSerial.h>
+SoftwareSerial BTserial(10, 11);
+ 
+
+void setup(){
+ 
+  Serial.begin(9600);
+  BTserial.begin(38400);
+  }
+
+ void loop(){
+  int cool = 0;
+
+  float finger1 = analogRead(1);
+  float finger2 = analogRead(2);
+  float finger3 = analogRead(3);
+  float finger4 = analogRead(4);
+  float finger5 = analogRead(5);
+  float finger1t = analogRead(6);
+  float finger2t = analogRead(7);
+  float finger3t = analogRead(8);
+  float finger4t = analogRead(9);
+  float finger5t = analogRead(10);
+ int  finger11 = fingerStatus1(finger1);
+	int finger22 = fingerStatus2(finger2);
+  	int finger33 = fingerStatus3(finger3);
+    	int finger44 = fingerStatus4(finger4);
+      	int finger55 = fingerStatus5(finger5);
+        	// int  finger66 = fingerStatus1t(finger1t);
+             	int finger77 = fingerStatus2t(finger2t);
+                 	int finger88 = fingerStatus3t(finger3t);
+                    	int finger99 = fingerStatus4t(finger4t);
+// Serial.println(finger99);  	 
+  	int finger1010 = fingerStatus5t(finger5t);
+ //finger99 = 0;
+/*Serial.print(finger11); Serial.print("/t");//340
+Serial.print(finger22); Serial.print("/t");//145
+Serial.print(finger33); Serial.println("/t");//280
+Serial.print(finger4); Serial.print("/t");//0
+Serial.print(finger55); Serial.print("/t");//100
+//Serial.print(fingerStatus1t); Serial.print("/t");//180
+Serial.print(finger77); Serial.print("/t");//100
+Serial.print(finger88); Serial.print("/t");//260
+Serial.print(finger99); Serial.println("/t");//300
+
+Serial.print(finger1010); Serial.println("/t");//350*/
+int finger66 =0;
+  	if(finger11==1 && finger22==0 && finger33==0 && finger44==0 && finger55==0 && finger66==0 && finger77==0 && finger88==0 && finger99==0 && finger1010==0)
+ 	{   Serial.print('D');
+     	BTserial.write('D');
+     	cool = 0;
+    	//delay(500);
+     	}
+  	if(finger11==0 && finger22==1 && finger33==0 && finger44==0 && finger55==0 && finger66==0 && finger77==0 && finger88==0 && finger99==0 && finger1010==0)
+   	{ Serial.print('C');
+     	BTserial.write('C');
+    	 
+     	cool = 0;
+    	// delay(500);
+     	}
+  	if(finger11==0 && finger22==0 && finger33==1 && finger44==0 && finger55==0 && finger66==0 && finger77==0 && finger88==0 && finger99==0 && finger1010==0)
+   	{ Serial.print('B');
+     	BTserial.write('B');
+     	cool = 0;
+    	// delay(500);
+     	}
+  	if(finger11==0 && finger22==0 && finger33==0 && finger44==1 && finger55==0 && finger66==0 && finger77==0 && finger88==0 && finger99==0 && finger1010==0)
+  	{
+    	Serial.print('A');
+     	BTserial.write('A');
+     	cool = 0;
+    	// delay(500);
+     	}
+  	if(finger11==0 && finger22==0 && finger33==0 && finger44==0 && finger55==1 && finger66==0 && finger77==0 && finger88==0 && finger99==0 && finger1010==0)
+   	{ Serial.print('E');
+     	BTserial.write('E');
+     	cool = 0;
+    	// delay(500);
+   	}
+
+     	if(finger11==0 && finger22==0 && finger33==0 && finger44==0 && finger55==0 && finger66==1 && finger77==0 && finger88==0 && finger99==0 && finger1010==0)
+  	{  Serial.print("K");
+    	BTserial.write('K');
+     	cool = 0;
+ 	//   delay(500);
+    	}
+  	if(finger11==0 && finger22==0 && finger33==0 && finger44==0 && finger55==0 && finger66==0 && finger77==1 && finger88==0 && finger99==0 && finger1010==0)
+    	{Serial.print("G");
+    	BTserial.write('G');
+     	cool = 0;
+    	//delay(500);
+    	}
+  	if(finger11==0 && finger22==0 && finger33==0 && finger44==0 && finger55==0 && finger66==0 && finger77==0 && finger88==1 && finger99==0 && finger1010==0)
+   	{ Serial.print("J");
+    	BTserial.write('J');
+     	cool = 0;
+   	// delay(500);
+    	}
+ 	if(finger11==0 && finger22==0 && finger33==0 && finger44==0 && finger55==0 && finger66==0 && finger77==0 && finger88==0 && finger99==1 && finger1010==0)
+   	{ Serial.print("I");
+    	BTserial.write('I');
+     	cool = 0;
+ 	//   delay(500);
+    	}
+ 	if(finger11==0 && finger22==0 && finger33==0 && finger44==0 && finger55==0 && finger66==0 && finger77==0 && finger88==0 && finger99==0 && finger1010==1)
+  	{  Serial.print("H");
+    	BTserial.write('H');
+     	cool = 0;
+  	//  delay(500);
+    	}
+    
+   	 
+    
+    
+
+ /* else{
+  	if(finger11==1 && finger22==0 && finger33==0 && finger44==0 && finger55==0 && finger66==0 && finger77==0 && finger88==0 && finger99==0 && finger1010==0)
+ 	{   Serial.print('d');
+     	BTserial.write('d');
+     	cool = 0;
+    	//delay(500);
+     	}
+  	if(finger11==0 && finger22==1 && finger33==0 && finger44==0 && finger55==0 && finger66==0 && finger77==0 && finger88==0 && finger99==0 && finger1010==0)
+   	{ Serial.print('c');
+     	BTserial.write('c');
+    	 
+     	cool = 0;
+    	// delay(500);
+     	}
+  	if(finger11==0 && finger22==0 && finger33==1 && finger44==0 && finger55==0 && finger66==0 && finger77==0 && finger88==0 && finger99==0 && finger1010==0)
+   	{ Serial.print('b');
+     	BTserial.write('b');
+     	cool = 0;
+    	// delay(500);
+     	}
+  	if(finger11==0 && finger22==0 && finger33==0 && finger44==1 && finger55==0 && finger66==0 && finger77==0 && finger88==0 && finger99==0 && finger1010==0)
+  	{
+    	Serial.print('a');
+     	BTserial.write('a');
+     	cool = 0;
+    	// delay(500);
+     	}
+  	if(finger11==0 && finger22==0 && finger33==0 && finger44==0 && finger55==1 && finger66==0 && finger77==0 && finger88==0 && finger99==0 && finger1010==0)
+   	{ Serial.print('e');
+     	BTserial.write('e');
+     	cool = 0;
+    	// delay(500);
+   	}
+
+     	if(finger11==0 && finger22==0 && finger33==0 && finger44==0 && finger55==0 && finger66==1 && finger77==0 && finger88==0 && finger99==0 && finger1010==0)
+  	{  Serial.print("k");
+    	BTserial.write('k');
+     	cool = 0;
+ 	//   delay(500);
+    	}
+  	if(finger11==0 && finger22==0 && finger33==0 && finger44==0 && finger55==0 && finger66==0 && finger77==1 && finger88==0 && finger99==0 && finger1010==0)
+    	{Serial.print("g");
+    	BTserial.write('g');
+     	cool = 0;
+    	//delay(500);
+    	}
+  	if(finger11==0 && finger22==0 && finger33==0 && finger44==0 && finger55==0 && finger66==0 && finger77==0 && finger88==1 && finger99==0 && finger1010==0)
+   	{ Serial.print("j");
+    	BTserial.write('j');
+     	cool = 0;
+   	// delay(500);
+    	}
+ 	if(finger11==0 && finger22==0 && finger33==0 && finger44==0 && finger55==0 && finger66==0 && finger77==0 && finger88==0 && finger99==1 && finger1010==0)
+   	{ Serial.print("i");
+    	BTserial.write('i');
+     	cool = 0;
+ 	//   delay(500);
+    	}
+ 	if(finger11==0 && finger22==0 && finger33==0 && finger44==0 && finger55==0 && finger66==0 && finger77==0 && finger88==0 && finger99==0 && finger1010==1)
+  	{  Serial.print("h");
+    	BTserial.write('h');
+     	cool = 0;
+  	//  delay(500);
+    	}
+    
+	}*/
+ 
+  /*  if(cool == 1){
+  	Serial.print('0');
+  	BTserial.write('0');
+  	}*/
+
+   delay(100);
+}
+
+
+  int fingerStatus1(float finger){
+    
+ 	int fingerReturn;
+	if(finger>340){
+  	fingerReturn=0;
+  	}
+	if(finger<=340){
+    	fingerReturn = 1;
+    	}
+   
+	return fingerReturn;
+	}
+
+	int fingerStatus2(float finger){
+    
+ 	int fingerReturn;
+	if(finger>145){
+  	fingerReturn=0;
+  	}
+	if(finger<=145){
+    	fingerReturn = 1;
+    	}
+   
+	return fingerReturn;
+	}
+	int fingerStatus3(float finger){
+	int fingerReturn;    
+  	if(finger>390){
+  	fingerReturn=0;
+  	}
+  	if(finger<=390){
+    	fingerReturn = 1;
+    	}
+   
+	return fingerReturn;
+ 
+  }
+	int fingerStatus4(float finger){
+	int fingerReturn;    
+  	if(finger>300){
+  	fingerReturn=0;
+  	}
+  	if(finger<=300){
+    	fingerReturn = 0;
+    	}
+   
+	return fingerReturn;
+	}
+ 
+  int fingerStatus5(float finger){
+	int fingerReturn;    
+  	if(finger>90){
+  	fingerReturn=0;
+  	}
+  	if(finger<=90){
+    	fingerReturn = 1;
+    	}
+   
+	return fingerReturn;
+ 
+  }
+   /*int fingerStatus1t(float finger){
+	int fingerReturn;    
+  	if(finger>180){
+  	fingerReturn=0;
+  	}
+  	if(finger<=180){
+    	fingerReturn = 1;
+    	}
+   
+	return fingerReturn;
+ 
+  }*/
+
+   int fingerStatus2t(float finger){
+	int fingerReturn;    
+  	if(finger>100){
+  	fingerReturn=0;
+  	}
+  	if(finger<=100){
+    	fingerReturn = 1;
+    	}
+   
+	return fingerReturn;
+ 
+  }
+	int fingerStatus3t(float finger){
+	int fingerReturn;    
+  	if(finger>260){
+  	fingerReturn=0;
+  	}
+  	if(finger<=260){
+    	fingerReturn = 1;
+    	}
+   
+	return fingerReturn;
+ 
+  }
+ 
+ int fingerStatus4t(float finger){
+	int fingerReturn;    
+  	if(finger>300){
+  	fingerReturn=0;
+  	}
+  	if(finger<=300){
+    	fingerReturn = 1;
+    	}
+   
+	return fingerReturn;
+ 
+  }
+   int fingerStatus5t(float finger){
+	int fingerReturn;    
+  	if(finger>350){
+  	fingerReturn=0;
+  	}
+  	if(finger<=350){
+    	fingerReturn = 1;
+    	}
+   
+	return fingerReturn;
+ 
+  }
